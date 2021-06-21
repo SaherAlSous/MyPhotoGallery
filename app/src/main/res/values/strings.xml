@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">MyPhotoGallery</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title">Title:</string>
+    <string name="_id">ID:</string>
+    <string name="owner">Owner:</string>
+    <string name="url">Url:</string>
+    <string name="page">Page:</string>
+    <string name="retry">Retry</string>
+</resources>
