@@ -29,7 +29,6 @@ class PhotoPaging(
                     data = data.photos,
                     prevKey = if (page == 1) null else page.minus(1),
                     nextKey = if (page == 5) null else page.plus(1),
-
                     )
             }
 

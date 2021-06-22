@@ -23,11 +23,7 @@ object NetworkService  {
                 .cache(Cache(cacheDir, cacheSize))
                 .readTimeout(TIME_OUT, TimeUnit.SECONDS)
                 .writeTimeout(TIME_OUT, TimeUnit.SECONDS)
-                .addInterceptor(HttpLoggingInterceptor { message ->
-                    Log.d(APP_TAG, message)
-                }.apply {
-                    level = HttpLoggingInterceptor.Level.BODY
-                })
+                .addInterceptor(PhotoInterceptor())
                 .addNetworkInterceptor(HttpLoggingInterceptor { message ->
                     Log.d(NETWORK_TAG, message)
                 }.apply {

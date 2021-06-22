@@ -10,7 +10,10 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import androidx.paging.LoadState
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
@@ -52,7 +55,7 @@ class PhotoGalleryFragment : Fragment() {
           */
         PhotoRecyclerView =
             view.findViewById(R.id.recyclerview_main) as RecyclerView
-        PhotoRecyclerView.layoutManager = LinearLayoutManager(context)
+        PhotoRecyclerView.layoutManager = GridLayoutManager(context, 3)
 
         //linking adapter with recyclerview
         PhotoRecyclerView.adapter = RecyclerViewPhotoAdapter

@@ -1,12 +1,16 @@
 package com.saheralsous.android.ui.adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import android.widget.ImageButton
+import androidx.core.os.bundleOf
+import androidx.navigation.Navigation
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.saheralsous.android.R
 import com.saheralsous.android.database.remote.model.PagingData
 
@@ -20,7 +24,6 @@ class RecyclerViewPhotoAdapter() :
         }
     }
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PhotoHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.photo_item_view,parent,false)
         return PhotoHolder(view)
@@ -28,21 +31,49 @@ class RecyclerViewPhotoAdapter() :
 }
 
 class PhotoHolder(view: View):
-    RecyclerView.ViewHolder(view){
-
+    RecyclerView.ViewHolder(view), View.OnClickListener {
+    /**
+     * changing the input to view the image, after downloading it with glide
+     *
     private var idTextView: TextView = view.findViewById(R.id._id)
     private var ownerTextView: TextView = view.findViewById(R.id._owner)
     private var titleTextView: TextView = view.findViewById(R.id._title)
     private var urlTextView: TextView = view.findViewById(R.id._url)
+     */
+    private val imageButtom: ImageButton = view.findViewById(R.id.ImageButton)
+    private lateinit var galleryItem: PagingData.GalleryItem
+    /**
+     * passing url to the Web View
+     */
 
-
+    @SuppressLint("ResourceType")
     fun bind(galleryItem : PagingData.GalleryItem){
+        this.galleryItem = galleryItem
+
+        /*
         idTextView.text = galleryItem.id
         ownerTextView.text = galleryItem.owner
         titleTextView.text = galleryItem.title
         urlTextView.text = galleryItem.url
+         */
+        galleryItem.url.let { url ->
+            Glide.with(itemView)
+                .load(url)
+                .override(350,350)
+                .into(imageButtom)
+        }
     }
 
+    init {
+        imageButtom.setOnClickListener(this)
+    }
+
+    override fun onClick(v: View?) {
+        val bundle = bundleOf("url" to galleryItem.photoPageUri.toString() )
+        Navigation.findNavController(v!!).navigate(
+            R.id.action_photoGalleryFragment_to_photoPageFragment,
+            bundle)
+    }
 }
 
 

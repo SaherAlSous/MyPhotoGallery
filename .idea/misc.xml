@@ -5,8 +5,9 @@
       <map>
         <entry key="..\:/Users/saher/AndroidStudioProjects/MyPhotoGallery/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/saher/AndroidStudioProjects/MyPhotoGallery/app/src/main/res/layout/fragment_photo_gallery.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/saher/AndroidStudioProjects/MyPhotoGallery/app/src/main/res/layout/fragment_photo_page.xml" value="0.22916666666666666" />
         <entry key="..\:/Users/saher/AndroidStudioProjects/MyPhotoGallery/app/src/main/res/layout/load_state_footer_view_item.xml" value="0.22871376811594202" />
-        <entry key="..\:/Users/saher/AndroidStudioProjects/MyPhotoGallery/app/src/main/res/layout/photo_item_view.xml" value="0.2" />
+        <entry key="..\:/Users/saher/AndroidStudioProjects/MyPhotoGallery/app/src/main/res/layout/photo_item_view.xml" value="0.1" />
       </map>
     </option>
   </component>

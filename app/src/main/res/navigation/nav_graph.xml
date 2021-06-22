@@ -9,5 +9,16 @@
         android:id="@+id/photoGalleryFragment"
         android:name="com.saheralsous.android.PhotoGalleryFragment"
         android:label="PhotoGallery"
-        tools:layout="@layout/fragment_photo_gallery" />
+        tools:layout="@layout/fragment_photo_gallery" >
+        <action
+            android:id="@+id/action_photoGalleryFragment_to_photoPageFragment"
+            app:destination="@id/photoPageFragment" />
+        <argument
+            android:name="url"
+            android:defaultValue="false"/>
+    </fragment>
+    <fragment
+        android:id="@+id/photoPageFragment"
+        android:name="com.saheralsous.android.PhotoPageFragment"
+        android:label="PhotoPageFragment" />
 </navigation>

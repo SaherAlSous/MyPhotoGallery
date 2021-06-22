@@ -1,6 +1,5 @@
 package com.saheralsous.android.database.remote.model
 
-import android.graphics.pdf.PdfDocument
 import android.net.Uri
 import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName
@@ -22,7 +21,6 @@ data class PagingData(
         var title: String,
         @SerializedName("url_s")
         val url: String) {
-
         val photoPageUri : Uri
             get() {
                 return Uri.parse("https://www.flickr.com/photos/")
@@ -32,5 +30,4 @@ data class PagingData(
                     .build()
             }
     }
-
 }
