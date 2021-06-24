@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.saheralsous.android.R
 import com.saheralsous.android.database.remote.model.PagingData
+import com.saheralsous.android.utils.getProgressDrawable
+import com.saheralsous.android.utils.loadImage
 
 class RecyclerViewPhotoAdapter() :
     PagingDataAdapter<PagingData.GalleryItem, PhotoHolder>(
@@ -56,12 +58,17 @@ class PhotoHolder(view: View):
         titleTextView.text = galleryItem.title
         urlTextView.text = galleryItem.url
          */
-        galleryItem.url.let { url ->
-            Glide.with(itemView)
-                .load(url)
-                .override(350,350)
-                .into(imageButtom)
-        }
+//        galleryItem.url.let { url ->
+//            Glide.with(itemView)
+//                .load(url)
+//                .override(350,350)
+//                .into(imageButtom)
+//        }
+        /**
+         * loading image using the ImageView Extension
+         * getting the context from the image_view context.
+         */
+        imageButtom.loadImage(galleryItem.url, getProgressDrawable(imageButtom.context))
     }
 
     init {
